@@ -19,7 +19,7 @@ export class SearchBar extends Component<any, any> {
         return (
             <Paper className='root' elevation={1}>
 
-                <InputBase className='input' placeholder="Search" />
+                <InputBase className='inputField' placeholder="Search" />
                 <IconButton className='iconButton' aria-label="Search">
                     <SearchIcon />
                 </IconButton>
