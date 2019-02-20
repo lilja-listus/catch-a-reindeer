@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, InputGroup, Glyphicon } from 'react-bootstrap';
 import './index.scss';
+import { SearchBar } from '../../components/search-bar';
 
 const app = document.getElementById("hits-container");
 
@@ -19,17 +19,8 @@ class App extends Component<any, any> {
 
         <div className="App-title">Catch a Reindeer</div>
 
-        <FormGroup>
-          <InputGroup>
-            <FormControl
-              type="text"
-              placeholder="Type in a name, city, country, year etc." />
-            <Glyphicon glyph="search"></Glyphicon>
+        <SearchBar />
 
-          </InputGroup>
-
-
-        </FormGroup>
         <div className="Greeting">
           <p id="welcome-text"> Welcome to the place where you can find info about all upcoming events in the Finno-Ugric world </p>
         </div>
