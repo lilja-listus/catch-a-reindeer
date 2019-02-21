@@ -6,19 +6,23 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Component } from 'react';
 import './index.scss';
 import algoliasearch from 'algoliasearch';
+import { HitsContainer } from '../../components/hits-container';
+
 
 
 export class SearchBar extends Component<any, any> {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            events: []
+        }
     }
 
 
     public searchClick(query) {
-        console.log(query);
-        let events = new Array();
-
+        let events = [];
         let client = algoliasearch('UFI1GERD33', '0f949363e44d09d51dd523165f9f36a0');
         let index = client.initIndex('conferences');
 
@@ -37,37 +41,37 @@ export class SearchBar extends Component<any, any> {
                 });
 
                 let location = element.location.country.eng + ", " + element.location.city.eng;
-                let event = "<em>" + name + "</em>" +
-                    " (" + dates + ") " + "</br>" +
-                    " learn more at: " + listOfLinks + "</br>" +
-                    "location: " + location + "</br>";
+                let event =  name + 
+                    " (" + dates + ") " + 
+                    " learn more at: " + listOfLinks +  
+                    "location: " + location;
 
                 events.push(event);
-                events.push("</br>");
-                events.push("<div><img src='algolia-logo.svg'></img></div>");
-                events.join('');
 
             });
-
+            this.setState({events: events})
         });
-        console.log(events);
-
     }
 
     public render() {
 
         const { query } = this.props;
+        const {events} = this.state;
 
         return (
-            <Paper className='root' elevation={1}>
+            <div>
+                <Paper className='root' elevation={1}>
 
-                <InputBase className='inputField' placeholder="Search" />
-                <IconButton className='iconButton' aria-label="Search" onClick=
-                    {() => this.searchClick(query)} >
-                    <SearchIcon />
-                </IconButton>
+                    <InputBase className='inputField' placeholder="Search" />
+                    <IconButton className='iconButton' aria-label="Search" onClick=
+                        {() => this.searchClick(query)} >
+                        <SearchIcon />
+                    </IconButton>
 
-            </Paper>
+                </Paper>
+                <HitsContainer events={events} />
+            </div>
+
         );
     }
 }

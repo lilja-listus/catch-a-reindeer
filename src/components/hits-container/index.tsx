@@ -7,9 +7,14 @@ export class HitsContainer extends Component<any, any>{
     }
 
     public render() {
-
         const { events } = this.props;
-        console.log(events);
-        return (<div> {events} </div>);
+
+        let theseEvents = events.map(function (event) {
+            return <li>{event}</li>;
+
+        });
+
+
+        return (<ul>{theseEvents}</ul>);
     }
 }
