@@ -9,6 +9,7 @@ export class HitsContainer extends Component<any, any>{
     public render() {
 
         const { events } = this.props;
-        return (<div> {events.join('')} </div>);
+        console.log(events);
+        return (<div> {events} </div>);
     }
 }
