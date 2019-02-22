@@ -1,35 +1,45 @@
 import algoliasearch from 'algoliasearch';
+import { IEvent } from '../interfaces/events';
 
 // let query = ''; 
-let events = [];
-export function searchClick(query) {
+let event: IEvent;
+let client;
+let index;
+let events: IEvent[];
 
-    let client = algoliasearch('UFI1GERD33', '0f949363e44d09d51dd523165f9f36a0');
-    let index = client.initIndex('conferences');
+export async function searchClick(query): Promise<IEvent[]> {
+    events = [];
 
-    index.search(query).then(result => {
+    client = algoliasearch('UFI1GERD33', '0f949363e44d09d51dd523165f9f36a0');
+    index = client.initIndex('conferences');
+
+    return index.search(query).then(result => {
         const hits = result.hits;
+
         hits.forEach((element) => {
-            let name = element.name;
-            let dates = element.start_date + ' - ' + element.end_date;
             let links = element.links;
             let listOfLinks = '';
-
+            let locationLinks = [];
             links.forEach((link) => {
                 if (link !== '') {
                     listOfLinks += '<a>' + link + '</a>' + ', ';
+                    locationLinks.push(listOfLinks);
                 }
             });
 
-            let location = element.location.country.eng + ", " + element.location.city.eng;
-            let event = name +
-                " (" + dates + ") " +
-                " learn more at: " + listOfLinks +
-                "location: " + location;
+            event = {
+                name: element.name,
+                dates: element.start_date + ' - ' + element.end_date,
+                links: locationLinks,
+                location: element.location.country.eng + ", " + element.location.city.eng
+            }
 
             events.push(event);
+
+
         });
+        return events;
     });
 
-    return events;
+    // return events;
 }

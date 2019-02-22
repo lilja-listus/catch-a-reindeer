@@ -7,10 +7,18 @@ import { Component } from 'react';
 import './index.scss';
 import { HitsContainer } from '../../components/hits-container';
 import { searchClick } from '../../common/services/search';
+import { IEvent } from '../../common/interfaces/events';
 
+// let event: IEvent;
+let events: IEvent[];
 
+interface ISearchBarState {
+    event: any;
+    query: string;
+    events: IEvent[]
+}
 
-export class SearchBar extends Component<any, any> {
+export class SearchBar extends Component<any, ISearchBarState> {
 
     constructor(props) {
         super(props);
@@ -19,13 +27,19 @@ export class SearchBar extends Component<any, any> {
             event: null,
             query: '',
             events: []
-
         }
+
     }
 
     public async updateEvents(query) {
-        const events = await searchClick(query);
-        this.setState({ events: events });
+
+        try {
+            events = await searchClick(query);
+            this.setState({ events: events });
+
+        } catch (err) {
+            console.log(err);
+        }
     }
 
 
@@ -33,22 +47,27 @@ export class SearchBar extends Component<any, any> {
 
         const { query, events } = this.state;
 
+        console.log('events', event)
+
         return (
             <div>
                 <Paper className='root' elevation={1}>
 
                     <InputBase className='inputField' placeholder="Type in a name, city, country, year etc."
                         value={this.state.query}
+
                         onChange={event => { this.setState({ query: event.target.value }) }}
+
                         onKeyPress={event => {
                             if (event.key === 'Enter') {
+                                this.setState({ events: [] });
                                 this.updateEvents(event.target.value);
                             }
                         }}
 
                     />
-                    <IconButton className='iconButton' aria-label="Search" onClick=
-                        {() => this.updateEvents(query)}>
+                    <IconButton className='iconButton' aria-label="Search"
+                        onClick={() => this.updateEvents(query)}>
                         <SearchIcon />
                     </IconButton>
 

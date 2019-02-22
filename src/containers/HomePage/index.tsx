@@ -8,16 +8,11 @@ class App extends Component<any, any> {
     super(props);
 
     this.state = {
-      query: 'ifusco',
       event: null,
     };
   }
 
   public render() {
-    const { query } = this.state;
-
-
-
     return (
       <div className="catch-a-reindeer">
 
