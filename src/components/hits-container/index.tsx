@@ -10,11 +10,11 @@ export class HitsContainer extends Component<any, any>{
         const { events } = this.props;
 
         let theseEvents = events.map(function (event) {
-            return <li>{event}</li>;
+            return <p>{event}</p>;
 
         });
 
 
-        return (<ul>{theseEvents}</ul>);
+        return (<div>{theseEvents}</div>);
     }
 }

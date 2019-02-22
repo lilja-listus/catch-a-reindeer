@@ -1,6 +1,6 @@
 
     .root {
-        padding: 2px 4px;
+        // padding: 2px 4px;
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -8,6 +8,9 @@
         .inputField{
             margin: 10px;
             font-size: 1.5em;
+        }
+        div {
+            width: 100%;
         }
     }
 
