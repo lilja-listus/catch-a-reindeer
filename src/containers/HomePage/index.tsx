@@ -23,7 +23,7 @@ class App extends Component<any, any> {
 
         <div className="App-title">Catch a Reindeer</div>
 
-        <SearchBar query={query} />
+        <SearchBar />
 
         <div className="Greeting">
           <p id="welcome-text"> Welcome to the place where you can find info about all upcoming events in the Finno-Ugric world </p>
