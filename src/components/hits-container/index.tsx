@@ -17,13 +17,11 @@ export class HitsContainer extends Component<any, any>{
 
         let { events } = this.props;
 
-        // let theseEvents = events.map(function (event) {
-        //     return <p>{event}</p>;
-
-        // });
         event = events[0];
 
         console.log(event);
-        return (<div>blah</div>);
+
+        const items = (events || []).map(event => (<li>{event.name}</li>))
+        return (<ul>{React.Children.toArray(items)}</ul>);
     }
 } 
