@@ -2,26 +2,30 @@ import React, { Component } from 'react';
 import './index.scss';
 import { IEvent } from '../../common/interfaces/events';
 
-let events: IEvent[];
-
 export class HitsContainer extends Component<any, any>{
     constructor(props) {
         super(props);
     }
 
-    events = [];
-
-
-
     public render() {
 
         let { events } = this.props;
+        const items = (events || []).map(event => (<div className="hits"><a href={event.links[0]}>{event.name} </a>, {event.dates}, {event.location}</div>));
 
-        event = events[0];
+        // TODO: make switch to either show hits or Nothing
 
-        console.log(event);
+        // if (events.length===0) {
+        //     items = <div>Unfortunately, there are no events here</div>
+        // }
+    
 
-        const items = (events || []).map(event => (<li>{event.name}</li>))
-        return (<ul>{React.Children.toArray(items)}</ul>);
+        return (
+        <div className="hits-container">
+          <div>{React.Children.toArray(items)}</div>
+          <div><img src='algolia-logo.svg'></img></div>
+
+        </div>
+        
+        );
     }
 } 

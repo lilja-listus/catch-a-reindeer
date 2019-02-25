@@ -21,7 +21,7 @@ class App extends Component<any, any> {
         <SearchBar />
 
         <div className="Greeting">
-          <p id="welcome-text"> Welcome to the place where you can find info about all upcoming events in the Finno-Ugric world </p>
+          <p id="welcome-text"> Welcome to the place where you can find info about different events in the Finno-Ugric world </p>
         </div>
       </div>);
   }

@@ -19,7 +19,6 @@ interface ISearchBarState {
 }
 
 export class SearchBar extends Component<any, ISearchBarState> {
-
     constructor(props) {
         super(props);
 
@@ -28,7 +27,6 @@ export class SearchBar extends Component<any, ISearchBarState> {
             query: '',
             events: []
         }
-
     }
 
     public async updateEvents(query) {
@@ -42,39 +40,29 @@ export class SearchBar extends Component<any, ISearchBarState> {
         }
     }
 
-
     public render() {
-
         const { query, events } = this.state;
-
-        console.log('events', event)
-
         return (
             <div>
                 <Paper className='root' elevation={1}>
-
                     <InputBase className='inputField' placeholder="Type in a name, city, country, year etc."
                         value={this.state.query}
-
                         onChange={event => { this.setState({ query: event.target.value }) }}
-
                         onKeyPress={event => {
                             if (event.key === 'Enter') {
                                 this.setState({ events: [] });
                                 this.updateEvents(event.target.value);
                             }
                         }}
-
                     />
                     <IconButton className='iconButton' aria-label="Search"
                         onClick={() => this.updateEvents(query)}>
                         <SearchIcon />
                     </IconButton>
-
                 </Paper>
+
                 <HitsContainer events={events} />
             </div>
-
         );
     }
 }

@@ -9,16 +9,16 @@ export async function searchClick(query): Promise<IEvent[]> {
     index = client.initIndex('conferences');
 
     return index.search(query)
-        ///    
         .then(result => {
             const hits = result.hits || [];
             return hits.map((hit => ({
                 name: hit.name,
                 dates: hit.start_date + ' - ' + hit.end_date,
-                links: hit.links
+                links: hit.links || []
                     .filter(link => link !== '')
                     .map((link) => ({ url: link })),
-                location: hit.location.country.eng + ", " + hit.location.city.eng
+                location: hit.location.city.eng + " (" + hit.location.country.eng + ")"
             })));
+
         });
 }
