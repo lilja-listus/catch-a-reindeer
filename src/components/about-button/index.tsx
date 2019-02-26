@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import PropTypes, { any } from 'prop-types';
 import Button from '@material-ui/core/Button';
 import './index.scss';
 

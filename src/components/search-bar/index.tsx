@@ -9,7 +9,6 @@ import { HitsContainer } from '../../components/hits-container';
 import { searchClick } from '../../common/services/search';
 import { IEvent } from '../../common/interfaces/events';
 
-// let event: IEvent;
 let events: IEvent[];
 
 interface ISearchBarState {
@@ -50,7 +49,6 @@ export class SearchBar extends Component<any, ISearchBarState> {
                         onChange={event => { this.setState({ query: event.target.value }) }}
                         onKeyPress={event => {
                             if (event.key === 'Enter') {
-                                this.setState({ events: [] });
                                 this.updateEvents(event.target.value);
                             }
                         }}
