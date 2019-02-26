@@ -3,7 +3,7 @@ import './index.scss';
 import { SearchBar } from '../../components/search-bar';
 import { AboutButton } from '../../components/about-button';
 
-class App extends Component<any, any> {
+export class HomePage extends Component<any, any> {
 
   constructor(props) {
     super(props);
@@ -29,4 +29,4 @@ class App extends Component<any, any> {
   }
 }
 
-export default App; 
+// export default App; 
