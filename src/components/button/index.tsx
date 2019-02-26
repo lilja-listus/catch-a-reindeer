@@ -13,8 +13,7 @@ export class SwitchButton extends Component<any, any> {
         const { text, link } = this.props;
 
         return (
-            <div>
-
+            <div className='button'>
                 <Link to={link} >
                     <Button variant="contained" color="primary" className='button'>
                         {text}

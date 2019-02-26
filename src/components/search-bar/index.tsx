@@ -63,13 +63,8 @@ export class SearchBar extends Component<any, ISearchBarState> {
                     </IconButton>
                 </Paper>
                 <Greeting hide={hide} />
-
                 <HitsContainer events={events} hide={hide} />
             </div>
         );
     }
 }
-
-
-
-
