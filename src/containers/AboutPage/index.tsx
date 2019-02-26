@@ -7,9 +7,7 @@ export class AboutPage extends Component<any, any>{
         super(props);
     }
 
-
     public render() {
-
         return (<div className="about">
             <div className="about-name"> What is this project? </div>
             <div className="about-text">

@@ -8,7 +8,6 @@ const Routes = userProps => {
         <Switch>
             <Route exact path='/about' component={AboutPage} />
             <Route exact path='/' component={HomePage} />
-
         </Switch>
     );
 }

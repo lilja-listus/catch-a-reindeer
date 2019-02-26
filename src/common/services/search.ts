@@ -4,10 +4,10 @@ import { IEvent } from '../interfaces/events';
 let client;
 let index;
 
+
 export async function searchClick(query): Promise<IEvent[]> {
     client = algoliasearch('UFI1GERD33', '0f949363e44d09d51dd523165f9f36a0');
     index = client.initIndex('conferences');
-
     return index.search(query)
         .then(result => {
             const hits = result.hits || [];
@@ -19,6 +19,5 @@ export async function searchClick(query): Promise<IEvent[]> {
                     .map((link) => ({ url: link })),
                 location: hit.location.city.eng + " (" + hit.location.country.eng + ")"
             })));
-
         });
 }

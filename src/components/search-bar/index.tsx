@@ -8,13 +8,15 @@ import './index.scss';
 import { HitsContainer } from '../../components/hits-container';
 import { searchClick } from '../../common/services/search';
 import { IEvent } from '../../common/interfaces/events';
+import { Greeting } from '../greeting';
 
 let events: IEvent[];
 
 interface ISearchBarState {
     event: any;
     query: string;
-    events: IEvent[]
+    events: IEvent[];
+    hide: boolean;
 }
 
 export class SearchBar extends Component<any, ISearchBarState> {
@@ -24,7 +26,8 @@ export class SearchBar extends Component<any, ISearchBarState> {
         this.state = {
             event: null,
             query: '',
-            events: []
+            events: [],
+            hide: true
         }
     }
 
@@ -32,7 +35,8 @@ export class SearchBar extends Component<any, ISearchBarState> {
 
         try {
             events = await searchClick(query);
-            this.setState({ events: events });
+            this.setState({ events: events, hide: false });
+
 
         } catch (err) {
             console.log(err);
@@ -40,7 +44,7 @@ export class SearchBar extends Component<any, ISearchBarState> {
     }
 
     public render() {
-        const { query, events } = this.state;
+        const { query, events, hide } = this.state;
         return (
             <div>
                 <Paper className='root' elevation={1}>
@@ -58,8 +62,9 @@ export class SearchBar extends Component<any, ISearchBarState> {
                         <SearchIcon />
                     </IconButton>
                 </Paper>
+                <Greeting hide={hide} />
 
-                <HitsContainer events={events} />
+                <HitsContainer events={events} hide={hide} />
             </div>
         );
     }
