@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import './index.scss';
 import { SearchBar } from '../../components/search-bar';
-import { AboutButton } from '../../components/about-button';
+import { SwitchButton } from '../../components/button';
 
 export class HomePage extends Component<any, any> {
 
   constructor(props) {
     super(props);
 
-    this.state = {
-      event: null,
-    };
+
   }
 
   public render() {
@@ -24,9 +22,8 @@ export class HomePage extends Component<any, any> {
         <div className="Greeting">
           <p id="welcome-text"> Welcome to the place where you can find info about different events in the Finno-Ugric world </p>
         </div>
-        <AboutButton />
+        <SwitchButton text={'about'} link={'/about'} />
       </div>);
   }
 }
 
-// export default App; 

@@ -6,8 +6,9 @@ import { AboutPage } from './containers/AboutPage';
 const Routes = userProps => {
     return (
         <Switch>
-            <Route exact path='/' component={HomePage} />
             <Route exact path='/about' component={AboutPage} />
+            <Route exact path='/' component={HomePage} />
+
         </Switch>
     );
 }
