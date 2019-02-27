@@ -16,7 +16,7 @@ export class SpecialCharacters extends Component<any, any>{
 
         return (
             <div className='special-characters'>
-                <div>Writing a paper and need some special characters?  <p>Just click on one and it copies </p></div>
+                <div>Writing a paper and need some special characters?  <p>Just copy-paste them</p></div>
 
 
                 <div className="text">
