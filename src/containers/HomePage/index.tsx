@@ -14,10 +14,11 @@ export class HomePage extends Component<any, any> {
       <div className="catch-a-reindeer">
         <div className="App-title">Catch a Reindeer</div>
         <SearchBar />
-        <SwitchButton text={'about'} link={'/about'} />
-        <div id='characters'>
+        <div className='buttons'>
+          <SwitchButton text={'about'} link={'/about'} />
           <SwitchButton text={'special characters'} link={'/characters'} />
         </div>
+
       </div>);
   }
 }

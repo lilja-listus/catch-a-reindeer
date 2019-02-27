@@ -12,28 +12,20 @@ body{
     font-size: 46px;
     font-family: 'Mali', cursive;
     margin-bottom: 30px;
-    margin-top: 30px;
-  
-  }
-  
-  #hits-container{
-    text-align: center;
+    margin-top: 30px;  
   }
 
-
-  
-  #root, #hits-container {
+  #root {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
-  app{
-    max-width: 1000px;
+  
+.buttons{
+  display: inline-flex;
+  justify-content: center;
+  > div{
+    margin: 20px;
   }
-  #characters{
-    margin-top: 80px;
-    button{
-      width: 100px;
 
-    }
-  }
+}
