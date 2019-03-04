@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './index.scss';
 import { SwitchButton } from '../../components/button';
+import strings from '../../common/data/localized-strings';
+
 export class AboutPage extends Component<any, any>{
 
     constructor(props) {
@@ -12,10 +14,9 @@ export class AboutPage extends Component<any, any>{
             <div className="about">
                 <div className="about-name"> What is this project? </div>
                 <div className="about-text">
-                    <p>Once upon a time, two crazy Finno-Ugrists/programmers (Kelvin Jackson
-                       and Liliana Listus) were at a hackathon in Budapest, and came up
-                       with the idea to create a website where their fellow crazy linguists
-             could learn about Finno-Ugric events all over the world.</p>
+                    <p>
+                        {strings.about}
+                    </p>
 
                 </div>
                 <img

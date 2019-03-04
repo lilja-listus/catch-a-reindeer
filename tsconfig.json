@@ -44,7 +44,8 @@
     "include": [
         "./**/*.ts",
         "./node_modules/common/**/*.ts",
-        "./node_modules/config/**/*.ts"
+        "./node_modules/config/**/*.ts",
+        "src/common/data/localized-strings.ts"
     ],
     "exclude": [
         "node_modules"
