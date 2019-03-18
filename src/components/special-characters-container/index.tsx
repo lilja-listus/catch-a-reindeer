@@ -15,6 +15,8 @@ export class SpecialCharactersContainer extends Component<any, any>{
     readonly charactersMari = ['ä', 'β', 'č', 'č́', 'ə', 'ə̑', 'γ', "l'", 'ń', 'ŋ', 'ö', 'š', 'ü', 'ž',];
     readonly charactersHungarian = ['á', 'é', 'í', 'ó', 'ő', 'ú', 'ü', 'ű'];
     readonly charactersMordvalais = ['ä', 'ć', 'č́', "d'", 'ə', 'ï', "l'", 'ń', 'ŕ', 'š', 'ś', "t'", 'χ', 'ž', 'ź'];
+    readonly charactersCyrUdmKomiMari = ['Ӧ', 'ö', 'i', 'Ӥ', 'ӥ', 'Ӝ', 'ӝ', 'Ӟ', 'ӟ', 'Ӵ', 'ӵ', 'ӱ'];
+    readonly charactersOldChurchSlavonic = ['І', 'ї', 'і', 'Ѻ', 'ѻ', 'Ѡ', 'Ѽ', 'ѡ', 'ѽ', 'ѹ', 'ꙋ', 'Ф', 'ф', 'Ѿ', 'ѿ', 'Ъ', 'ъ', 'Ѣ', 'ѣ', 'Ꙗ', 'ꙗ', 'Ѧ', 'ѧ', 'Ѯ', 'ѯ', 'Ѱ', 'ѱ', 'Ѳ', 'ѳ', 'Ѵ', 'ѵ']
 
     onCharacterClick = (character: string) => {
         this.setState({ selectedCharacter: character })
@@ -38,6 +40,9 @@ export class SpecialCharactersContainer extends Component<any, any>{
         const mapMari = this.charactersMari.map(characterToDiv);
         const mapHungarian = this.charactersHungarian.map(characterToDiv);
         const mapMordvalais = this.charactersMordvalais.map(characterToDiv);
+        const mapCyr = this.charactersCyrUdmKomiMari.map(characterToDiv);
+        const mapOldChurchSlavonic = this.charactersOldChurchSlavonic.map(characterToDiv);
+        // const 
 
         return (<div className='special-characters-container'>
 
@@ -51,6 +56,12 @@ export class SpecialCharactersContainer extends Component<any, any>{
                 <div className="characters">{React.Children.toArray(mapHungarian)} </div>
                 <div>Mordvalaiskielet:</div>
                 <div className="characters">{React.Children.toArray(mapMordvalais)} </div>
+                <div>Unusual cyrillic characters:</div>
+                <div className="characters">{React.Children.toArray(mapCyr)} </div>
+                <div>Old Church Spavonic (koska miks ei? :) :</div>
+                <div className="characters">{React.Children.toArray(mapOldChurchSlavonic)} </div>
+
+
 
             </div></div>
         );
