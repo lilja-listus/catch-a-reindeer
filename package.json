@@ -13,7 +13,7 @@
     "ajv": "^6.5.4",
     "algoliasearch": "^3.30.0",
     "async": "^2.6.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "react": "^16.8.3",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.7.0",
