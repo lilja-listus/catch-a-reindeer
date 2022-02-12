@@ -10,7 +10,7 @@
     "@types/node": "^10.12.21",
     "@types/react": "^16.7.22",
     "@types/react-dom": "^16.0.11",
-    "ajv": "^6.5.4",
+    "ajv": "^6.12.3",
     "algoliasearch": "^3.30.0",
     "async": "^2.6.1",
     "node-sass": "^4.11.0",
